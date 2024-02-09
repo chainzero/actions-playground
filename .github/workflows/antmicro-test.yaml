@@ -7,6 +7,9 @@ jobs:
   test-run:
     runs-on: [self-hosted, Linux, X64, gcp-custom-runners]
     container: ubuntu:20.04  # Example container image
+    env:
+      GHA_SSH_TUNNEL_CONFIG_SECRET_NAME: "GHA_SSH_TUNNEL_CONFIG_SECRET_NAME"
+      GHA_SSH_TUNNEL_KEY_SECRET_NAME: "GHA_SSH_TUNNEL_KEY_SECRET_NAME"
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
