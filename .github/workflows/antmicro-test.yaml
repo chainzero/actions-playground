@@ -8,8 +8,8 @@ jobs:
     runs-on: [self-hosted, Linux, X64, gcp-custom-runners]
     container: ubuntu:20.04  # Example container image
     env:
-      GHA_SSH_TUNNEL_CONFIG_SECRET_NAME: "GHA_SSH_TUNNEL_CONFIG_SECRET_NAME"
-      GHA_SSH_TUNNEL_KEY_SECRET_NAME: "GHA_SSH_TUNNEL_KEY_SECRET_NAME"
+      GHA_SSH_TUNNEL_CONFIG: ${{ secrets.GHA_SSH_TUNNEL_CONFIG }}
+      GHA_SSH_TUNNEL_KEY: ${{ secrets.GHA_SSH_TUNNEL_KEY }}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
