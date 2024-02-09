@@ -1,19 +1,16 @@
-name: Test Antmicro Autoscaler with Container
+
+name: test
 
 on:
   workflow_dispatch:
 
 jobs:
-  test-run:
+  centos:
+    container: centos:7
     runs-on: [self-hosted, Linux, X64, gcp-custom-runners]
-    container: ubuntu:20.04  # Example container image
     env:
-      GHA_SSH_TUNNEL_CONFIG: ${{ secrets.GHA_SSH_TUNNEL_CONFIG }}
-      GHA_SSH_TUNNEL_KEY: ${{ secrets.GHA_SSH_TUNNEL_KEY }}
+      GHA_SSH_TUNNEL_KEY: "${{ secrets.GHA_SSH_TUNNEL_KEY }}"
+      GHA_SSH_TUNNEL_CONFIG: "${{ secrets.GHA_SSH_TUNNEL_CONFIG }}"
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Run a one-line script
-      run: |
-        echo "Hello, world! The time is $(date)."
+    - run: yum -y install wget
+    - run: wget http://localhost:8080 && cat index.html
