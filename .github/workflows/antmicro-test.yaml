@@ -13,7 +13,3 @@ jobs:
     steps:
     - run: yum -y install wget
     - run: wget http://localhost:8080 && cat index.html
-    - run: |
-        echo "Entering sleep mode for troubleshooting..."
-        sleep infinity
-
