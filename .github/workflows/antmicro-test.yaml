@@ -7,4 +7,4 @@ jobs:
     container: centos:7
     runs-on: [self-hosted, Linux, X64]
     steps:
-    - run: echo "This job is running on an Ubuntu runner 2"
+    - run: echo "This job is running on an Ubuntu runner 3"
