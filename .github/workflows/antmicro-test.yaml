@@ -1,12 +1,11 @@
-name: test
+on: [push]
 
-on:
-  workflow_dispatch:
+name: test
 
 jobs:
   centos:
     container: centos:7
-    runs-on: [self-hosted, Linux, X64, gcp-custom-runners]
+    runs-on: [self-hosted, Linux, X64]
     env:
       GHA_SSH_TUNNEL_KEY: "${{ secrets.GHA_SSH_TUNNEL_KEY }}"
       GHA_SSH_TUNNEL_CONFIG: "${{ secrets.GHA_SSH_TUNNEL_CONFIG }}"
