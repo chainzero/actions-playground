@@ -7,5 +7,4 @@ jobs:
     container: centos:7
     runs-on: [self-hosted, Linux, X64]
     steps:
-    - run: yum -y install wget
-    - run: wget http://localhost:8080 && cat index.html
+    - run: echo "This job is running on an Ubuntu runner"
